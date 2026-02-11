@@ -1,6 +1,6 @@
-// Define function
-def call(String ProjectName, String ImageTag, String DockerHubUser){
-   echo "This is Building the code or docker image"
-  sh "docker build -t ${DockerHubUser}/${ProjectName}:${ImageTag} ."
-  echo "Image build successfully thourgh shared libraries"
+// docker_build.groovy
+def call(String dir, String tag, String user) {
+    echo "Building Docker image for ${dir}..."
+    sh "docker build -t ${user}/${dir}:${tag} ./${dir}"
+    echo "Docker image ${user}/${dir}:${tag} built successfully ✅"
 }
